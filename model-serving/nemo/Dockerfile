@@ -13,9 +13,10 @@ RUN cp -r /tmp/examples/RetrievalAugmentedGeneration/llm-inference-server/conver
 cp -r /tmp/examples/RetrievalAugmentedGeneration/llm-inference-server/ensemble_models /opt/ensemble_models && \
 cp -r /tmp/examples/RetrievalAugmentedGeneration/llm-inference-server/model_server /opt/model_server && \
 cp -r /tmp/examples/RetrievalAugmentedGeneration/llm-inference-server/model_server_client /opt/model_server_client && \
-cp /tmp/examples/RetrievalAugmentedGeneration/llm-inference-server/requirements.txt /opt/requirements.txt
+cp /tmp/examples/RetrievalAugmentedGeneration/llm-inference-server/requirements.txt /opt/requirements.txt && \
+rm -rf /tmp/examples
+
 RUN pip install --no-cache-dir -r /opt/requirements.txt
-RUN rm -rf /tmp/examples
 
 # Create basic directories
 
