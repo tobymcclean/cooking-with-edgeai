@@ -9,11 +9,11 @@ ENV LD_LIBRARY_PATH=/opt/tritonserver/backends/tensorrtllm:$LD_LIBRARY_PATH
 RUN git clone https://github.com/NVIDIA/GenerativeAIExamples.git --single-branch /tmp/examples
 
 # install model-server automation
-COPY /tmp/examples/RetrievalAugmentedGeneration/llm-inference-server/conversion_scripts /opt/conversion_scripts
-COPY /tmp/examples/RetrievalAugmentedGeneration/llm-inference-server/ensemble_models /opt/ensemble_models
-COPY /tmp/examples/RetrievalAugmentedGeneration/llm-inference-server/model_server /opt/model_server
-COPY /tmp/examples/RetrievalAugmentedGeneration/llm-inference-server/model_server_client /opt/model_server_client
-COPY /tmp/examples/RetrievalAugmentedGeneration/llm-inference-server/requirements.txt /opt/requirements.txt
+RUN cp -r /tmp/examples/RetrievalAugmentedGeneration/llm-inference-server/conversion_scripts /opt/conversion_scripts && \
+cp -r /tmp/examples/RetrievalAugmentedGeneration/llm-inference-server/ensemble_models /opt/ensemble_models && \
+cp -r /tmp/examples/RetrievalAugmentedGeneration/llm-inference-server/model_server /opt/model_server && \
+cp -r /tmp/examples/RetrievalAugmentedGeneration/llm-inference-server/model_server_client /opt/model_server_client && \
+cp /tmp/examples/RetrievalAugmentedGeneration/llm-inference-server/requirements.txt /opt/requirements.txt
 RUN pip install --no-cache-dir -r /opt/requirements.txt
 RUN rm -rf /tmp/examples
 
