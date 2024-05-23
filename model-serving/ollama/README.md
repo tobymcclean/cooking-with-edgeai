@@ -142,3 +142,34 @@ usage: ollama_llama3_client.py [-h] [--host HOST] [--port PORT] [--prompt PROMPT
 | --host HOST     | The host of the ollama service           | localhost   |
 | --port PORT     | The port of the ollama service           | 11434       |
 | --prompt PROMPT | The prompt to send to the language model | who wrote the book godfather? |
+
+# Ollama Vision Models
+
+## Download the model
+In a terminal inside the ollama container, run the following command to download the vision model:
+
+```Bash
+ollama pull llava
+```
+
+The model will be downloaded to the `.ollama` directory.
+
+## Python Client: ollama
+An example, client using the `ollama` library can be found in the `ollama_llava_vision_client.py` file. To run the client, open a terminal in this directory and run the following command:
+
+```Bash
+python ollama_llava_vision_client.py
+```
+
+The application has the following optional arguments:
+
+```text
+usage: ollama_llama3_vision_client.py [-h] [--host HOST] [--port PORT] [--prompt PROMPT] [--image IMAGE]
+```
+
+| Option          | Description                              | Default     |
+|-----------------|------------------------------------------|-------------|
+| --host HOST     | The host of the ollama service           | localhost   |
+| --port PORT     | The port of the ollama service           | 11434       |
+| --prompt PROMPT | The prompt to send to the language model | who wrote the book godfather? |
+| --image IMAGE   | The path to the image to send to the model| ./imgs/jmb.jpg        |
