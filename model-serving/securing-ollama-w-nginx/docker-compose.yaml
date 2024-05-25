@@ -1,0 +1,23 @@
+name: secure-ollama
+
+services:
+  ollama:
+    container_name: ollama
+    hostname: ollama
+    image: ollama
+#    ports:
+#      - 11434:11434
+    volumes:
+      - ../../ollama/.ollama:/root/.ollama
+      - ./:/workspace
+  reverse:
+    container_name: reverse
+    hostname: reverse
+    image: nginx
+    ports:
+      - 8080:80
+      - 8443:443
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./certs/localhost:/etc/ssl/private
